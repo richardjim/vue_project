@@ -2,14 +2,14 @@
 
   <section class="section pt-5" id="project">
     <div class="container">
-      <!-- <div class="row">
+      <div class="row">
         <div class="col-lg-8 offset-lg-2">
           <h1 class="section-title text-center">`P</h1>
           <div class="section-title-border margin-t-20"></div>
           <p class="section-subtitle font-secondary text-muted text-center padding-t-30">Call to action pricing table is
             really crucial to your for your business website. Make your bids stand-out with amazing options.</p>
         </div>
-      </div> -->
+      </div>
 
 
       <div class="d-flex justify-content-around"  v-for="repo in repos" v-bind:key="repo.id">
