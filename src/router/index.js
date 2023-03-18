@@ -24,12 +24,17 @@ const routes = [
     path: '/forgot-password',
     name: 'Forgot Password page',
     component: () => import('../views/forgot-password.vue')
+  },
+  {
+    path: '*',
+    name: 'Not Found',
+    component: () => import('../views/404.vue')
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
+  // base: process.env.BASE_URL,
   routes
 })
 
