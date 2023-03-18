@@ -2,26 +2,26 @@
 
   <section class="section pt-5" id="project">
     <div class="container">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-lg-8 offset-lg-2">
           <h1 class="section-title text-center">`P</h1>
           <div class="section-title-border margin-t-20"></div>
           <p class="section-subtitle font-secondary text-muted text-center padding-t-30">Call to action pricing table is
             really crucial to your for your business website. Make your bids stand-out with amazing options.</p>
         </div>
-      </div>
+      </div> -->
 
 
-      <div class="col margin-t-50" v-for="repo in repos" v-bind:key="repo.id">
-        <div class="col-lg-4">
+      <div class="d-flex justify-content-around"  v-for="repo in repos" v-bind:key="repo.id">
+        <div class="col-lg-8 ">
           <div class="text-center pricing-box hover-effect">
             <h4 class="text-uppercase">{{ repo.language }}</h4>
             <h5>{{ repo.name }}</h5>
-            <h6 class="text-uppercase text-muted">Billing Per Month</h6>
+            <h6 class="text-uppercase text-muted">{{ repo.full_name }}</h6>
             <div class="pricing-border"></div>
             <pagination :repos="reposLength" v-model="page" :per-page="perPage" @paginate="getPage">
             </pagination>
-            <a href="javascript: void(0);" class="btn btn-custom waves-effect waves-light margin-t-30">Join Now</a>
+            <a href="javascript: void(0);" class="btn btn-custom waves-effect waves-light margin-t-30">View</a>
           </div>
           
         </div>

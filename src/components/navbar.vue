@@ -59,7 +59,7 @@ export default {
             <a v-scroll-to="'#features'" href="javascript: void(0);" class="nav-link">Features</a>
           </li>
           <li class="nav-item">
-            <a v-scroll-to="'#pricing'" href="javascript: void(0);" class="nav-link">Pricing</a>
+            <a v-scroll-to="'#project'" href="javascript: void(0);" class="nav-link">Project</a>
           </li>
           <li class="nav-item">
             <a v-scroll-to="'#team'" href="javascript: void(0);" class="nav-link">Team</a>

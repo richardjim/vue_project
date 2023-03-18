@@ -2,7 +2,7 @@
 import Navbar from "@/components/navbar";
 import Services from "@/components/services";
 import Features from "@/components/features";
-import Pricing from "@/components/pricing";
+import Project from "@/components/projects";
 import Team from "@/components/team";
 import Blog from "@/components/blog";
 import Contact from "@/components/contact";
@@ -15,7 +15,7 @@ export default {
     Navbar,
     Services,
     Features,
-    Pricing,
+    Project,
     Team,
     Blog,
     Contact,
@@ -64,7 +64,7 @@ export default {
       <!--END HOME-->
       <Services />
       <Features />
-      <Pricing />
+      <Project />
       <Team />
       <Blog />
       <Contact />
