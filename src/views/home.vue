@@ -3,7 +3,6 @@ import Navbar from "@/components/navbar";
 import Services from "@/components/services";
 import Features from "@/components/features";
 import Project from "@/components/projects";
-import Team from "@/components/team";
 import Blog from "@/components/blog";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
@@ -16,7 +15,6 @@ export default {
     Services,
     Features,
     Project,
-    Team,
     Blog,
     Contact,
     Footer,
@@ -65,7 +63,6 @@ export default {
       <Services />
       <Features />
       <Project />
-      <Team />
       <Blog />
       <Contact />
       <Footer />
