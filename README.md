@@ -1,4 +1,4 @@
-# Dorsin - Vuejs Responsive Landing Page Template
+# Vuejs 
 
 ## Project setup
 ```
