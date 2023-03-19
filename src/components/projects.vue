@@ -1,5 +1,4 @@
 <template>
-
   <section class="section pt-5" id="project">
     <div class="container">
       <div class="row">
@@ -12,24 +11,25 @@
       </div>
 
 
-      <div class="d-flex justify-content-around"  v-for="repo in repos" v-bind:key="repo.id">
-        <div class="col-lg-8 ">
-          <div class="text-center pricing-box hover-effect">
-            <h4 class="text-uppercase">{{ repo.language }}</h4>
-            <h5>{{ repo.name }}</h5>
-            <h6 class="text-uppercase text-muted">{{ repo.full_name }}</h6>
-            <div class="pricing-border"></div>
-            <pagination :repos="reposLength" v-model="page" :per-page="perPage" @paginate="getPage">
-            </pagination>
-            <a href="javascript: void(0);" class="btn btn-custom waves-effect waves-light margin-t-30">View</a>
-          </div>
-          
-        </div>
 
+      <div id="app" v-cloak>
+        <div class="d-flex justify-content-around" v-for="(record, index) of displayedRecords" :key="index">
+          <div class="col-lg-8 ">
+            <div class="text-center pricing-box hover-effect">
+              <h4 class="text-uppercase">{{ record.language }}</h4>
+              <h5>{{ record.name }}</h5>
+              <h6 class="text-uppercase text-muted">{{ record.full_name }}</h6>
+              <div class="pricing-border"></div>
+              <a href="javascript: void(0);" class="btn btn-custom waves-effect waves-light margin-t-30">View</a>
+            </div>
+          </div>
+        </div>
+        <pagination class="d-flex justify-content-around overflow-auto" :records="records.length" v-model="page"
+          :per-page="perPage">
+        </pagination>
       </div>
     </div>
   </section>
-
 </template>
 <script>
 
@@ -48,36 +48,41 @@ export default {
   data() {
     return {
       repos: [],
-      reposLength: 0,
-      perPage: 10,
-      page: 1
+      page: 1,
+      perPage: 5,
+      records: [this.repo]
     }
   },
   mounted() {
     Vue.axios.get('https://api.github.com/users/richardjim/repos')
       .then(response => {
-        this.repos = response.data
-        console.log(this.repos)
+        this.records = response.data
+        console.log(this.records)
       })
   },
-  methods: {
-    getPage: function (page) {
-      // we simulate an api call that fetch the records from a backend
-      this.records = [];
-      const startIndex = this.perPage * (page - 1) + 1;
-      const endIndex = startIndex + this.perPage - 1;
-      for (let i = startIndex; i <= endIndex; i++) {
-        this.records.push(`Item ${i}`);
-      }
-    },
-    getRecordsLength() {
-      // here we simulate an api call that returns the records length
-      this.recordsLength = 50;
+
+  computed: {
+    displayedRecords() {
+      const startIndex = this.perPage * (this.page - 1);
+      const endIndex = startIndex + this.perPage;
+      return this.records.slice(startIndex, endIndex);
     }
   },
   created() {
-    this.getRecordsLength();
-    this.getPage(this.page);
+    // here we simulate an api call that returns the complete list
+    for (let i = 1; i <= 500; i++) {
+      this.records.push(`Item ${i}`);
+    }
   }
+
 }
 </script>
+<style>
+#app {
+  text-align: center;
+}
+
+[v-cloak] {
+  display: none;
+}
+</style>
